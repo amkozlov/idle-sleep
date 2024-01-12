@@ -32,7 +32,7 @@ Server will not be powered off until: Sat Jan 13 20:02:29 CET 2024
 * Enable/status check:
 
 ```
-tom$ ecosleep.sh enabled
+tom$ ecosleep.sh enable
 tom$ ecosleep.sh status
 EcoSleep enabled
 ```
