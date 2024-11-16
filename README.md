@@ -6,12 +6,16 @@ This is enough electricity to run an energy-efficient single household with a fr
 Using the instructions below, you can configure your servers to turn off automatically once idle state is detected, and bring it back online remotely (via IPMI) once needed.
 This setup has been successfully used on our lab servers since March 2023, leading to estimated `~20%` energy saving. 
 
+By default, a server will be turned after `1h` in the idle state, which is defined as zero interactive user sessions AND CPU utilization below `0.5`.
+This simple heuristic worked just fine for us, but if needed, you can easily adjust it here: 
+https://github.com/amkozlov/idle-sleep/blob/main/ecosleep.sh#L17
+
 ## Configuration
 
-### 1. Add your servers to the `hostfile`. 
+### 1. Add your servers to the `hostfile` 
 Format: `server_name ipmi_ip_address`
 
-### 2. Configure IPMI users and passwords:
+### 2. Configure IPMI users and passwords
 Check existing IPMI users:
 ```
 sudo ipmitool user list 1
@@ -41,13 +45,13 @@ sudo cp * /opt/idle-sleep
 ```
 
 
-### 4. Add cron job:
+### 4. Add cron job
 
 ```
 sudo crontab ./crontab
 ```
 
-### 5. Configure aliases and permissions:
+### 5. Configure aliases and permissions
 By default, members of the `ecosleep` group will be allowed to manually shutdown the server by running the `ecosleep` command.
 If you do not want this, just skip the following steps.
 If you want to use a different (existing) group, please edit `sudoers.d/ecosleep` file accordingly.

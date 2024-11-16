@@ -1,12 +1,12 @@
 #!/bin/bash
 host=$1
-user=ipmiop
+user=ecosleep
 
 scriptdir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 hostfile=$scriptdir/hostfile
 
 # You might want to restrict access to this file, since IPMI operator can also do power off etc. :)  
-pwdfile=$scriptdir/ipmiop.txt
+pwdfile=$scriptdir/ipmipwd.txt
 
 iface=
 while IFS=' ' read -r h i;

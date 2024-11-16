@@ -1,1 +1,1 @@
-%cme    ALL = (root:cme) NOPASSWD: /opt/idle-sleep/ecosleep.sh
+%ecosleep    ALL = (root:ecosleep) NOPASSWD: /opt/idle-sleep/ecosleep.sh
